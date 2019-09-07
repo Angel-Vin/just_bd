@@ -1,0 +1,115 @@
+#aboutModalWindow {
+    -fx-background-color: #020f1b;
+
+    -fx-background-size: 80% 90%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-min-width: 600;
+    -fx-min-height: 500;
+    -fx-padding: 20;
+    -fx-spacing: 20;
+
+}
+
+#scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+#scroll {
+    -fx-min-height: 380;
+    -fx-min-width: 600;
+    -fx-background-color: transparent;
+
+}
+
+#content {
+    -fx-min-width: 600;
+    -fx-alignment: center;
+    -fx-text-fill: gold;
+    -fx-background-color: transparent;
+}
+
+
+
+
+
+#close {
+    -fx-background-color: #2a3065;
+    -fx-text-fill: #f5f5dc;
+}
+
+#close:pressed:hover {
+    -fx-background-color: #666b99;
+    -fx-text-fill: black;
+}
+
+
+
+
+
+.footer {
+    -fx-padding: 0 0 0 20;
+}
+
+
+
+
+.modalExtendedVBox Label {
+    -fx-padding: 3;
+    -fx-text-fill: orange;
+    -fx-pref-width: 1168;
+    -fx-font-family: "arial";
+    -fx-font-weight: normal;
+
+}
+
+.modalShowingButton {
+    -fx-max-width: 10;
+    -fx-min-height: 20;
+    -fx-padding: 0 5 2 5;
+    -fx-text-fill: red;
+}
+
+
+#modalListView {
+    -fx-pref-width: 100%;
+    -fx-background-color: transparent;
+}
+
+
+
+
+
+#modalListView .list-cell {
+    -fx-background-color: transparent;
+    -fx-border-style: solid;
+    -fx-border-width: 0;
+    -fx-font-family: monospace;
+    -fx-text-fill: #eeeeee;
+    -fx-pref-width: 100%;
+}
+
+
+
+#modalListView .list-cell:empty {
+    -fx-background-color: transparent;
+}
+
+#modalListView .list-cell:checked,
+#modalListView .list-cell:focused {
+    -fx-background-color: transparent;
+}
+
+
+#modalListView .list-cell:selected {
+    -fx-text-fill: gold;
+    -fx-background-color: transparent;
+    -fx-pref-width: 100%;
+}
+
+.modalInfoLbl {
+    -fx-padding: 5;
+    -fx-text-fill: #f5f5dc;
+    -fx-border-color: darkolivegreen;
+    -fx-border-insets: 5;
+}

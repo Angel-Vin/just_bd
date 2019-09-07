@@ -1,0 +1,805 @@
+
+.header{
+    -fx-font-size: 3.5em;
+    -fx-font-family: "Segoe UI Light";
+}
+
+.item-title{
+    -fx-font-size: 1em;
+    -fx-font-family: "Segoe UI";
+}
+
+.root {
+    /* Root variables */
+    accent_color: #0078d7;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Check Box                                                                   *
+ *                                                                             *
+ ******************************************************************************/
+
+.check-box {
+    -fx-text-fill: text_color;
+}
+
+.check-box > .box > .mark {
+    -fx-shape: "M17.939,5.439L7.5,15.889l-5.439-5.449l0.879-0.879L7.5,14.111 l9.561-9.551L17.939,5.439z";
+
+    -fx-pref-width: 16px;
+    -fx-pref-height: 12px;
+
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+}
+
+/* unselected */
+.check-box > .box {
+    -fx-background-color: box_background_color;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+
+    -fx-border-color: box_border_color;
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+
+    -fx-padding: 2px 0px 2px 0px;
+}
+
+/* hover */
+.check-box:hover > .box, .check-box:selected:hover > .box  {
+    -fx-border-color: box_border_hover_color;
+}
+
+/* selected */
+.check-box:selected > .box{
+    -fx-background-color: accent_color;
+    -fx-border-color: accent_color;
+}
+
+.check-box:selected > .box > .mark{
+    -fx-background-color: white;
+}
+
+/* pressed */
+.check-box:pressed > .box, .check-box:selected:pressed > .box
+{
+    -fx-background-color: #666666;
+    -fx-border-color: #666666;
+}
+
+/* indeterminate */
+.check-box:indeterminate > .box {
+    -fx-padding: 3px;
+
+    -fx-border-color: accent_color;
+}
+
+.check-box:indeterminate > .box > .mark {
+    -fx-shape: null;
+
+    -fx-pref-width: 10px;
+    -fx-max-width: 10px;
+    -fx-min-width: 10px;
+    -fx-pref-height: 10px;
+    -fx-max-height: 10px;
+    -fx-min-height: 10px;
+
+    -fx-background-color: indeterminate_mark_color;
+    /*-fx-background-insets: 3px;*/
+}
+
+/* -- indeterminate - pressed */
+.check-box:indeterminate:pressed > .box > .mark {
+    -fx-background-color: #666666;
+}
+
+.check-box:indeterminate:pressed > .box {
+    -fx-background-color: indeterminate_box_pressed_color;
+    -fx-border-color: #666666;
+}
+
+/* focused */
+
+.check-box:focused > .box{
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    /* - first border is focus ring
+       - second border is control border */
+    -fx-border-color: focus_ring_color, box_border_color;
+    -fx-border-width: 1, 2;
+    /*noinspection CssInvalidFunction*/
+    -fx-border-style: segments(1, 2), solid;
+    -fx-border-insets: -3, 0;
+}
+
+/* -- focused - selected */
+.check-box:focused:selected > .box{
+    -fx-border-color: focus_ring_color, accent_color;
+}
+
+/* -- focused - selected, hover */
+.check-box:focused:selected:hover > .box{
+    -fx-border-color: focus_ring_color, box_border_hover_color;
+}
+
+/* -- focused - pressed */
+.check-box:focused:pressed > .box{
+    -fx-border-color: focus_ring_color, #666666;
+}
+
+.check-box:focused:selected:pressed > .box{
+    -fx-border-color: focus_ring_color, #666666;
+}
+
+.check-box:focused:indeterminate:pressed > .box{
+    -fx-border-color: focus_ring_color, #666666;
+}
+
+/* -- focused - indeterminate*/
+.check-box:focused:indeterminate > .box {
+    -fx-border-color: white, accent_color;
+}
+
+/* disabled */
+.check-box:disabled
+{
+    -fx-opacity: 0.4;
+}
+
+.check-box:disabled > .box
+{
+    -fx-background-color: #cdcdcd;
+    -fx-border-color: #aaa;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Radio Button                                                                *
+ *                                                                             *
+ ******************************************************************************/
+
+.radio-button {
+    -fx-text-fill: text_color;
+}
+
+.radio-button > .radio  {
+    -fx-background-color: background_color;
+    -fx-background-radius: 1.0em; /* large value to make sure this remains circular */
+    -fx-background-insets: 0;
+
+    /* Two borders exist because of the focus ring, if they didn't the size of the control would change on focus
+       - The first one is the border of the control
+       - The second one is the border of the focus ring
+       */
+    /*noinspection CssInvalidFunction*/
+    -fx-border-style: solid, segments(1, 2);
+    -fx-border-radius: 1.0em, 0;
+    -fx-border-color: border_color, transparent;
+    -fx-border-insets: 0px, -2px;
+    -fx-border-width: 2px, 1px;
+
+    -fx-padding: 3px; /* 4 -- padding from outside edge to the inner black dot */
+}
+
+.radio-button > .radio > .dot {
+    -fx-background-color: dot_color;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1.0em; /* large value to make sure this remains circular */
+
+    -fx-padding: 5px; /* 3 -- radius of the inner black dot when selected */
+}
+
+/* hover */
+.radio-button:hover > .radio {
+    -fx-background-color: background_color;
+    -fx-border-color: border_hover_color, transparent;
+}
+
+.radio-button:selected:hover > .radio > .dot {
+    -fx-background-color: dot_selected_hover_color;
+}
+
+/* selected */
+.radio-button:selected > .radio {
+    -fx-border-color: accent_color, transparent;
+}
+
+.radio-button:selected > .radio > .dot {
+    -fx-background-color: dot_selected_color;
+}
+
+/* pressed */
+.radio-button:pressed > .radio
+{
+    -fx-background-color: background_pressed_color;
+    -fx-border-color: #999999, transparent;
+}
+
+.radio-button:pressed:selected > .radio > .dot
+{
+    -fx-background-color: #999999;
+}
+
+/* focused */
+.radio-button:focused > .radio
+{
+    /*noinspection CssInvalidFunction*/
+    -fx-border-style: solid, segments(1, 2);
+    -fx-border-radius: 1.0em, 0;
+    -fx-border-color: border_color, focus_ring_color;
+    -fx-border-insets: 0px, -2px;
+    -fx-border-width: 2px, 1px;
+}
+
+.radio-button:focused:hover > .radio
+{
+    -fx-border-color: border_color, focus_ring_color;
+}
+
+.radio-button:focused:pressed > .radio, .radio-button:focused:selected:pressed > .radio
+{
+    -fx-border-color: #999999, focus_ring_color;
+    -fx-background-color: background_pressed_color;
+}
+
+.radio-button:focused:selected > .radio {
+    -fx-border-color: accent_color, focus_ring_color;
+}
+
+/* disabled */
+.radio-button:disabled
+{
+    -fx-opacity: 0.4;
+}
+
+.radio-button:disabled > .radio
+{
+    -fx-border-color: border_color, transparent;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Tooltip                                                                     *
+ *                                                                             *
+ ******************************************************************************/
+
+.tooltip {
+    -fx-background-color: background_color;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0 0 0 0;
+
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em;  /*4 8 4 8 */
+
+    -fx-font-family: "Segoe UI Semilight";
+    -fx-text-fill: text_color;
+    -fx-font-size: 1.166667em; /* 14 */
+
+    -fx-border-color: border_color;
+    -fx-border-width: 1px;
+
+    -fx-effect: null;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Combo Box                                                                   *
+ *                                                                             *
+ ******************************************************************************/
+
+.combo-box-base  {
+    -fx-background-color: transparent, border_color, transparent, background_color;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-font-family: "Segoe UI";
+
+}
+
+.combo-box-base > .list-cell {
+    -fx-text-fill: text_color;
+}
+
+.combo-box-base:hover {
+    -fx-background-color: transparent, border_hover_color, transparent, background_color;
+}
+
+.combo-box-base:focused {
+    -fx-background-color: transparent, border_focused_color, transparent, background_color;
+    -fx-background-insets: -1.4, 0, 1, 2;
+
+    -fx-background-radius: 0, 0, 0, 0;
+}
+
+.combo-box-base:focused:hover {
+    -fx-background-color: transparent, border_hover_color, transparent, background_color;
+}
+
+.combo-box-base:pressed, .combo-box-base:focused:pressed {
+    -fx-background-color: transparent, border_pressed_color, transparent, background_pressed_color;
+}
+
+.combo-box-base:disabled {
+    -fx-opacity: .4;
+}
+
+/* ------- OPEN BUTTON ------- */
+.combo-box-base > .arrow-button {
+    -fx-background-color: transparent, transparent, transparent;
+}
+
+/* ------- ARROW ------- */
+.combo-box-base > .arrow-button > .arrow {
+    -fx-shape: "M21.361,12.736l0.527,0.527L16,19.152l-5.889-5.889l0.527-0.527L16,18.098L21.361,12.736z";
+    -fx-background-insets: 0 0 0 0, 0;
+    -fx-background-color: arrow_color;
+}
+
+/* LIST (Popup)*/
+.combo-box-popup > .list-view {
+    -fx-effect: null;
+
+    -fx-border-color: list_cell_border_color;
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 11pt;
+
+    -fx-background-color: list_cell_color;
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:hover{
+    -fx-background-color: list_cell_hover_color;
+    -fx-text-fill: text_color;
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected{
+    -fx-background-color: derive(accent_color, 90%);
+    -fx-text-fill: #111;
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected:hover{
+    -fx-background-color: derive(accent_color, 70%);
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ * Text Common (TextField, PasswordField, TextArea)                            *
+ *                                                                             *
+ ******************************************************************************/
+
+.text-input{
+    -fx-background-radius: 0, 0;
+
+    -fx-background-color: border_color, text_input_background_color;
+    -fx-background-insets: 0, 2;
+
+    -fx-prompt-text-fill: prompt_text_color;
+
+    -fx-highlight-fill: highlight_color;
+    -fx-highlight-text-fill: highlighted_text_color;
+
+    -fx-font-size: 1.166667em; /* 14 */
+
+    -fx-text-fill: text_color;
+}
+
+.text-input:hover{
+    -fx-background-color: border_hover_color, background_hover_color;
+}
+
+.text-input:focused{
+    -fx-background-color: accent_color, background_focused_color;
+
+    -fx-text-fill: text_focused_color;
+}
+
+.text-input:disabled
+{
+    -fx-opacity: 1;
+    -fx-background-insets: 0, 2;
+    -fx-background-color: border_disabled_color, background_disabled_color;
+    -fx-text-fill: text_disabled_color;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Text Field (and PasswordField)                                              *
+ *                                                                             *
+ ******************************************************************************/
+
+
+
+.text-field > .right-button > .right-button-graphic {
+    -fx-shape: "M221.738,305.873l6.135,6.16l-2.875,2.863l-6.135-6.159l-6.263,6.237l-2.864-2.875l6.263-6.238l-6.177-6.202l2.875-2.863l6.177,6.201l6.244-6.22l2.864,2.876L221.738,305.873z";
+
+    -fx-padding: 0.416667em;
+    -fx-background-color: graphic_color;
+}
+
+.text-field > .right-button{
+    -fx-cursor: default;
+
+    -fx-background-insets: -0.1666665em -0.45em -0.1666665em -0.45em; /* 4 7 4 7 -> this values are subtracted by 2px in em because of the border of the textfield */
+    -fx-background-color: background_focused_color;  /* We must give it a color so that it reacts to the mouse */
+}
+
+.text-field > .right-button:hover > .right-button-graphic {
+    -fx-background-color: accent_color;
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ * Toggle Switch (ControlsFX)                                                  *
+ *                                                                             *
+ ******************************************************************************/
+
+
+
+.toggle-switch {
+    -thumb-move-animation-time: 100;
+    -toggle-display: left;
+}
+
+.toggle-switch .text {
+    -fx-fill: text_color;
+    -fx-font-size: 1em;
+    -fx-font-family: "Segoe UI";
+}
+
+.toggle-switch .thumb {
+    -fx-background-radius: 1.0em; /* large value to make sure this remains circular */
+    -fx-padding: 5px;
+}
+
+.toggle-switch .thumb-area{
+    -fx-background-radius: 10px;
+
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+
+    -fx-pref-width: 44px;
+    -fx-pref-height: 20px;
+    -fx-padding: 5px 5px 5px 5px;
+}
+
+/* unselected */
+.toggle-switch .thumb-area{
+    -fx-background-insets: 0;
+    -fx-background-color: unselected_color;
+
+    -fx-border-color: unselected_border_color;
+}
+
+.toggle-switch .thumb {
+    -fx-background-color: thumb_unselected_color;
+}
+
+/* unselected - hover */
+.toggle-switch:hover .thumb-area {
+    -fx-background-color: unselected_hover_color;
+
+    -fx-border-color: unselected_border_hover_color;
+}
+
+.toggle-switch:hover .thumb {
+    -fx-background-color: thumb_unselected_hover_color;
+}
+
+/* selected */
+.toggle-switch:selected .thumb-area{
+    -fx-background-insets: 0;
+    -fx-background-color: selected_color;
+
+    -fx-border-color: selected_border_color;
+}
+
+.toggle-switch:selected .thumb{
+    -fx-background-color: thumb_selected_color;
+}
+
+/* selected - hover */
+.toggle-switch:selected:hover .thumb-area {
+    -fx-background-color: selected_hover_color;
+    -fx-border-color: selected_hover_color;
+}
+
+/* pressed */
+.toggle-switch:pressed .thumb-area, .toggle-switch:selected:pressed .thumb-area{
+    -fx-background-insets: 0;
+
+    -fx-background-color: pressed_color;
+    -fx-border-color: pressed_border_color;
+}
+
+.toggle-switch:pressed .thumb {
+    -fx-background-color: thumb_pressed_color;
+}
+
+/* disabled */
+.toggle-switch:disabled
+{
+    -fx-opacity: 0.4;
+}
+
+
+
+
+
+/*******************************************************************************
+ *                                                                             *
+ * List View                                                                   *
+ *                                                                             *
+ ******************************************************************************/
+
+
+
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+
+    -fx-text-fill: text_color;
+}
+
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:selected {
+
+    -fx-text-fill: text_color;
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ * Tree View                                                                   *
+ *                                                                             *
+ ******************************************************************************/
+
+.tree-view {
+    -fx-background-color: tree_view_background_color;
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+}
+
+.tree-view .tree-cell {
+    -fx-font-size: 1.166667em; /* 14 */
+    -fx-padding: 1em;
+    -fx-background-color: tree_view_background_color;
+    -fx-text-fill: text_color;
+}
+
+/********** Label **********/
+.tree-view .tree-cell .label{
+    -fx-font-family: "Segoe UI";
+
+    -fx-padding: 0 3px 0 0;
+}
+
+.tree-view .tree-cell {
+    -fx-text-fill: text_color;
+}
+
+/* Hover */
+.tree-view .tree-cell:filled:hover {
+    -fx-background-color: hover_color;
+
+    -fx-text-fill: text_hover_color;
+}
+
+.tree-view .tree-cell:hover > .tree-disclosure-node > .arrow {
+    -fx-background-color: arrow__hover_color;
+}
+
+/* Selected */
+.tree-view .tree-cell:filled:selected {
+    -fx-background-color: cell_selected_color;
+    -fx-table-cell-border-color: transparent;
+
+    -fx-text-fill: text_selected_color;
+}
+
+/* Selected hover */
+.tree-view .tree-cell:filled:selected:hover,
+.tree-view .tree-cell:selected:hover {
+    -fx-background-color: cell_selected_hover_color;
+    -fx-text-fill: text_selected_color;
+}
+
+.tree-view .tree-cell:selected:hover > .tree-disclosure-node > .arrow {
+    -fx-background-color: arrow_selected_hover_color;
+}
+
+
+/* Pressed */
+.tree-view .tree-cell:filled:pressed,
+.tree-view .tree-cell:filled:selected:pressed,
+.tree-view .tree-cell:selected:pressed,
+.tree-view .tree-cell:pressed{
+    -fx-background-color: pressed_color;
+}
+
+/*********** Expand/Collapse icon **********/
+.tree-cell > .tree-disclosure-node {
+    -fx-padding: 0.333333em 1em 0.333333em 1em;
+}
+
+.tree-cell > .tree-disclosure-node > .arrow {
+    -fx-background-color: arrow_color;
+    -fx-padding: 0.416667em 0.333333em 0.416667em 0.333333em;
+    -fx-shape: "M8.06,20.938L7,20l8-8L7,4l1.06-0.938L16.917,12L8.06,20.938z";
+}
+
+.tree-cell > .tree-disclosure-node > .arrow {
+    -fx-background-color: text_color;
+}
+
+.tree-cell:hover > .tree-disclosure-node > .arrow {
+    -fx-background-color: text_hover_color;
+}
+
+.tree-cell:selected > .tree-disclosure-node > .arrow {
+    -fx-background-color: text_selected_color;
+}
+
+.tree-cell:expanded > .tree-disclosure-node > .arrow {
+    -fx-scale-y: -1;
+    -fx-rotate: 90;
+}
+
+.tree-cell {
+    -fx-background-color: transparent;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Tab Pane and Tabs                                                           *
+ *                                                                             *
+ ******************************************************************************/
+
+.tab-pane {
+    -fx-tab-min-height: 2.91666375em; /* 34 */
+    -fx-tab-max-height: 2.91666375em; /* 34 */
+}
+
+.tab-pane > .tab-header-area {
+    -fx-padding: 0 0.166667em 0em 0.416667em; /* 0 2 5 5 */
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab {
+    -fx-background-color: transparent, transparent, tab_pane_background_color;
+    -fx-background-radius: 0 0 0 0, 0 0 0 0, 0 0 0 0;
+    -fx-padding: 0.083333em 1.5em 0.0769em 1.5em; /* 1 18 0.99 18 */
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected {
+    -fx-background-color: transparent, tab_selected_border_color, tab_selected_background_color;
+    -fx-background-radius: 0 0 0 0, 0 0 0 0, 0 0 0 0;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
+    -fx-text-fill: tab_text_color;
+    -fx-font-size: 1.333333em; /* 16 */
+    -fx-font-family: "Segoe UI";
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected > .tab-container > .tab-label {
+    -fx-text-fill: accent_color;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:hover > .tab-container > .tab-label {
+    -fx-text-fill: tab_text_hover_color;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected:hover > .tab-container > .tab-label {
+    -fx-text-fill: tab_text_selected_hover_color;
+}
+
+.tab-pane > .tab-header-area > .tab-header-background {
+    -fx-background-color:
+            tab_pane_bottom_border_color,
+            transparent,
+            tab_pane_background_color;
+    -fx-background-insets: 1 1 0 1, 0 0 1 0, 1;
+}
+
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-width: 0, 0;
+    -fx-border-color: transparent, transparent;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Context Menu, Menus, MenuBar and MenuItem                                   *
+ *                                                                             *
+ ******************************************************************************/
+
+/****************************** Context Menu **********************************/
+
+.context-menu {
+    -fx-background-color: context_menu_background_color;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 0 0 0 0, 0 0 0 0, 0 0 0 0;
+    -fx-padding: 0.5em 0em 0.5em 0em; /* 6 0 6 0 */
+
+    -fx-border-color: context_menu_border_color;
+    -fx-border-style: solid;
+}
+
+/* separator */
+.context-menu .separator {
+    -fx-padding: 0.58333275em 1em 0.58333275em 1em;  /*7 12 7 12 */
+}
+
+.context-menu .separator:horizontal .line {
+    -fx-border-color: separator_color transparent transparent transparent;
+    -fx-border-insets: 0;
+}
+
+/********************************* Menu Bar ************************************/
+
+.menu-bar {
+    -fx-background-color: menu_bar_background_color;
+}
+
+
+
+.menu-bar > .container > .menu-button:hover,
+.menu-bar > .container > .menu-button:focused,
+.menu-bar > .container > .menu-button:showing {
+    -fx-background-color: menu_button_hover_color;
+}
+
+.menu-bar > .container > .menu-button > .label,
+.menu-bar > .container > .menu-button:hover > .label,
+.menu-bar > .container > .menu-button:focused > .label,
+.menu-bar > .container > .menu-button:showing  > .label {
+    -fx-text-fill: text_color;
+}
+
+/********************************* Menu Item ***********************************/
+
+.menu-item {
+    -fx-text-fill: text_color;
+    -fx-background-color: transparent;
+}
+
+.menu-item .label {
+    -fx-text-fill: text_color;
+}
+
+.check-menu-item:checked > .left-container > .check {
+    -fx-shape: "M17.939,5.439L7.5,15.889l-5.439-5.449l0.879-0.879L7.5,14.111 l9.561-9.551L17.939,5.439z";
+    -fx-padding: 5px 7px 5px 7px;
+    -fx-scale-shape: true;
+}
+
+.check-menu-item:checked > .left-container {
+    -fx-padding: 0em 1em 0em 0.5em;
+}
+
+.radio-menu-item:checked > .left-container {
+    -fx-padding: 0em 1em 0em 0.5em;
+}
+
+
+.radio-menu-item:checked > .left-container > .radio,
+.check-menu-item:checked > .left-container > .check,
+.menu > .right-container > .arrow {
+    -fx-background-color: graphic_color;
+}
+
+/* hover */
+.menu-item:hover,
+.menu-item:focused {
+    -fx-background-color: hover_color;
+}
+
+/* pressed */
+.menu-item:pressed {
+    -fx-background-color: pressed_color;
+}
+
+/* disabled */
+.menu-item:disabled:hover,
+.menu-item:disabled:focused,
+.menu-item:disabled:pressed {
+    -fx-background-color: transparent;
+}

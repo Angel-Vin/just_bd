@@ -1,0 +1,177 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 134217728 bytes for Failed to commit area from 0x0000000081c00000 to 0x0000000089c00000 of length 134217728.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (t:/workspace/open/src/hotspot/os/windows/os_windows.cpp:3221), pid=1016, tid=13876
+#
+# JRE version:  (10.0.2+13) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (10.0.2+13, mixed mode, aot, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Djava.library.path=D:\Учёба\6 семестр\ТРПО\Курсовой проект\Автомагазин 24\just\javafx-sdk-11.0.2\javafx-sdk-11.0.2\lib --module-path=D:\Учёба\6 семестр\ТРПО\Курсовой проект\Автомагазин 24\just\javafx-sdk-11.0.2\javafx-sdk-11.0.2\lib --add-modules=javafx.controls,javafx.fxml -javaagent:D:\Учёба\5 семестр\ОСИСП\IntelliJ IDEA Community Edition 2018.2.3\lib\idea_rt.jar=62893:D:\Учёба\5 семестр\ОСИСП\IntelliJ IDEA Community Edition 2018.2.3\bin -Dfile.encoding=UTF-8 sample.Main
+
+Host: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz, 4 cores, 7G,  Windows 10 , 64 bit Build 17134 (10.0.17134.706)
+Time: Thu May 02 16:26:57 2019 RTZ 2 (ceia) elapsed time: 0 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000190ead55800):  JavaThread "Unknown thread" [_thread_in_vm, id=13876, stack(0x00000031d7700000,0x00000031d7800000)]
+
+Stack: [0x00000031d7700000,0x00000031d7800000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x5a01a9]
+V  [jvm.dll+0x6bcf31]
+V  [jvm.dll+0x6be126]
+V  [jvm.dll+0x6be7b3]
+V  [jvm.dll+0x234978]
+V  [jvm.dll+0x59dac4]
+V  [jvm.dll+0x592825]
+V  [jvm.dll+0x2f632b]
+V  [jvm.dll+0x2f6295]
+V  [jvm.dll+0x2f6172]
+V  [jvm.dll+0x2f8366]
+V  [jvm.dll+0x344293]
+V  [jvm.dll+0x3449a6]
+V  [jvm.dll+0x344393]
+V  [jvm.dll+0x2c4628]
+V  [jvm.dll+0x2c5771]
+V  [jvm.dll+0x69d1db]
+V  [jvm.dll+0x69e9fc]
+V  [jvm.dll+0x3519e9]
+V  [jvm.dll+0x6856a2]
+V  [jvm.dll+0x3ba0c3]
+V  [jvm.dll+0x3bc261]
+C  [java.exe+0x3531]
+C  [java.exe+0xe1af]
+C  [java.exe+0xe356]
+C  [KERNEL32.DLL+0x14034]
+C  [ntdll.dll+0x73691]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00000190e8cb7a40, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x00000190ead6f000 GCTaskThread "GC Thread#0" [stack: 0x00000031d7800000,0x00000031d7900000] [id=17480]
+  0x00000190ead70800 GCTaskThread "GC Thread#1" [stack: 0x00000031d7900000,0x00000031d7a00000] [id=16764]
+  0x00000190ead73000 GCTaskThread "GC Thread#2" [stack: 0x00000031d7a00000,0x00000031d7b00000] [id=5032]
+  0x00000190ead74000 GCTaskThread "GC Thread#3" [stack: 0x00000031d7b00000,0x00000031d7c00000] [id=15304]
+  0x00000190eade0000 ConcurrentGCThread "G1 Main Marker" [stack: 0x00000031d7c00000,0x00000031d7d00000] [id=8140]
+  0x00000190eade1800 ConcurrentGCThread "G1 Conc#0" [stack: 0x00000031d7d00000,0x00000031d7e00000] [id=21076]
+
+[error occurred during error reporting (printing all threads), id 0xe0000002]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00000190ead53f00] Heap_lock - owner thread: 0x00000190ead55800
+
+Heap address: 0x0000000081c00000, size: 2020 MB, Compressed Oops mode: Non-zero based: 0x0000000081c00000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff7280f0000 - 0x00007ff72812e000 	D:\Учёба\5 семестр\ОСИСП\jdk-10.0.2\bin\java.exe
+0x00007fffdf8e0000 - 0x00007fffdfac1000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007fffdd080000 - 0x00007fffdd131000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007fffdcaf0000 - 0x00007fffdcd63000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007fffdce20000 - 0x00007fffdcec1000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007fffdd390000 - 0x00007fffdd42e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007fffdf4e0000 - 0x00007fffdf53b000 	C:\WINDOWS\System32\sechost.dll
+0x00007fffdf080000 - 0x00007fffdf1a4000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007fffdf720000 - 0x00007fffdf8b0000 	C:\WINDOWS\System32\USER32.dll
+0x00007fffdbf00000 - 0x00007fffdbf20000 	C:\WINDOWS\System32\win32u.dll
+0x00007fffdee30000 - 0x00007fffdee58000 	C:\WINDOWS\System32\GDI32.dll
+0x00007fffdc110000 - 0x00007fffdc2a2000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007fffdbd10000 - 0x00007fffdbdaf000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007fffdbe00000 - 0x00007fffdbef8000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007fffc6a10000 - 0x00007fffc6c79000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.17134.706_none_fb43a2cb30647007\COMCTL32.dll
+0x00007fffdf1b0000 - 0x00007fffdf4d2000 	C:\WINDOWS\System32\combase.dll
+0x00007fffd7e90000 - 0x00007fffd7e9a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007fffdca70000 - 0x00007fffdcaea000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007fffdd8e0000 - 0x00007fffdd90d000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007fffc7ea0000 - 0x00007fffc7f8f000 	D:\Учёба\5 семестр\ОСИСП\jdk-10.0.2\bin\msvcr120.dll
+0x00007fffbdd20000 - 0x00007fffbddc6000 	D:\Учёба\5 семестр\ОСИСП\jdk-10.0.2\bin\msvcp120.dll
+0x0000000072000000 - 0x0000000072a70000 	D:\Учёба\5 семестр\ОСИСП\jdk-10.0.2\bin\server\jvm.dll
+0x00007fffdced0000 - 0x00007fffdced8000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007fffd77f0000 - 0x00007fffd77f9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007fffdd980000 - 0x00007fffdd9ec000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007fffd2b30000 - 0x00007fffd2b53000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007fffd2b00000 - 0x00007fffd2b2a000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007fffdbdb0000 - 0x00007fffdbdf9000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x00007fffd7720000 - 0x00007fffd772f000 	D:\Учёба\5 семестр\ОСИСП\jdk-10.0.2\bin\verify.dll
+0x00007fffda690000 - 0x00007fffda859000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007fffd56a0000 - 0x00007fffd56c9000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007fffce6f0000 - 0x00007fffce717000 	D:\Учёба\5 семестр\ОСИСП\jdk-10.0.2\bin\java.dll
+0x00007fffce500000 - 0x00007fffce52a000 	D:\Учёба\5 семестр\ОСИСП\jdk-10.0.2\bin\instrument.dll
+0x00007fffd7700000 - 0x00007fffd7716000 	D:\Учёба\5 семестр\ОСИСП\jdk-10.0.2\bin\zip.dll
+0x00007fffd4880000 - 0x00007fffd488a000 	D:\Учёба\5 семестр\ОСИСП\jdk-10.0.2\bin\jimage.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;D:\Учёба\5 семестр\ОСИСП\jdk-10.0.2\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.17134.706_none_fb43a2cb30647007;D:\Учёба\5 семестр\ОСИСП\jdk-10.0.2\bin\server
+
+VM Arguments:
+jvm_args: -Djava.library.path=D:\Учёба\6 семестр\ТРПО\Курсовой проект\Автомагазин 24\just\javafx-sdk-11.0.2\javafx-sdk-11.0.2\lib --module-path=D:\Учёба\6 семестр\ТРПО\Курсовой проект\Автомагазин 24\just\javafx-sdk-11.0.2\javafx-sdk-11.0.2\lib --add-modules=javafx.controls,javafx.fxml -javaagent:D:\Учёба\5 семестр\ОСИСП\IntelliJ IDEA Community Edition 2018.2.3\lib\idea_rt.jar=62893:D:\Учёба\5 семестр\ОСИСП\IntelliJ IDEA Community Edition 2018.2.3\bin -Dfile.encoding=UTF-8 
+java_command: sample.Main
+java_class_path (initial): D:\Учёба\6 семестр\ТРПО\Курсовой проект\Автомагазин 24\just\out\production\just;D:\Учёба\6 семестр\ТРПО\Курсовой проект\Автомагазин 24\just\itextpdf-5.4.0.jar;D:\Учёба\6 семестр\ТРПО\Курсовой проект\Автомагазин 24\just\mysql-connector-java-8.0.15.jar;D:\Учёба\6 семестр\ТРПО\Курсовой проект\Автомагазин 24\just\javafx-sdk-11.0.2\javafx-sdk-11.0.2\lib\src.zip;D:\Учёба\6 семестр\ТРПО\Курсовой проект\Автомагазин 24\just\javafx-sdk-11.0.2\javafx-sdk-11.0.2\lib\javafx-swt.jar;D:\Учёба\6 семестр\ТРПО\Курсовой проект\Автомагазин 24\just\javafx-sdk-11.0.2\javafx-sdk-11.0.2\lib\javafx.web.jar;D:\Учёба\6 семестр\ТРПО\Курсовой проект\Автомагазин 24\just\javafx-sdk-11.0.2\javafx-sdk-11.0.2\lib\javafx.base.jar;D:\Учёба\6 семестр\ТРПО\Курсовой проект\Автомагазин 24\just\javafx-sdk-11.0.2\javafx-sdk-11.0.2\lib\javafx.fxml.jar;D:\Учёба\6 семестр\ТРПО\Курсовой проект\Автомагазин 24\just\javafx-sdk-11.0.2\javafx-sdk-11.0.2\lib\javafx.media.jar;D:\Учёба\6 семестр\ТРПО\Курсовой проект\Автомагазин 24\just\javafx-sdk-11.0.2\javafx-sdk-11.0.2\lib\javafx.swing.jar;D:\Учёба\6 семестр\ТРПО\Курсовой проект\Автомагазин 24\just\javafx-sdk-11.0.2\javafx-sdk-11.0.2\lib\javafx.controls.jar;D:\Учёба\6 семестр\ТРПО\Курсовой проект\Автомагазин 24\just\javafx-sdk-11.0.2\javafx-sdk-11.0.2\lib\javafx.graphics.jar
+Launcher Type: SUN_STANDARD
+
+Logging:
+Log output configuration:
+#0: stdout all=warning uptime,level,tags
+#1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\matlab2\runtime\win64;D:\matlab2\bin;D:\matlab2\polyspace\bin;D:\MATLAB\runtime\win64;D:\MATLAB\bin;D:\Git\cmd;C:\Users\Анжелика\AppData\Local\Microsoft\WindowsApps;
+USERNAME=Анжелика
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 17134 (10.0.17134.706)
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 142 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx, fma
+
+Memory: 4k page, physical 8268920k(1031404k free), swap 12463224k(82360k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (10.0.2+13) for windows-amd64 JRE (10.0.2+13), built on Jun 28 2018 01:57:56 by "mach5one" with MS VC++ 12.0 (VS2013)
+
+END.

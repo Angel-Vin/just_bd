@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="4.0" style="-fx-background-color: grey;" stylesheets="fxml/JMetroDarkTheme.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Manager.BuyingSellingController">
+   <children>
+      <Label alignment="CENTER" prefHeight="21.0" prefWidth="329.0" text="Выбор товара:" />
+      <ComboBox fx:id="cbItems" />
+      <HBox alignment="CENTER" prefHeight="34.0" prefWidth="330.0" spacing="4.0" style="-fx-border-color: black;">
+         <children>
+            <Label text="Выбор оплаты:" />
+
+            <RadioButton fx:id="rbCashPay" mnemonicParsing="false" text="Наличными" />
+            <RadioButton fx:id="rbCardPay" mnemonicParsing="false" text="Карточка" />
+         </children>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="TOP_CENTER" prefHeight="62.0" prefWidth="330.0" spacing="5.0" style="-fx-border-color: black;">
+         <children>
+            <Label text="Договор:">
+               <HBox.margin>
+                  <Insets top="3.0" />
+               </HBox.margin>
+            </Label>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+               <children>
+                  <RadioButton fx:id="rbSell" mnemonicParsing="false" text="Продажа" />
+                  <RadioButton fx:id="rbBuy" mnemonicParsing="false" text="Покупка" />
+               </children>
+               <HBox.margin>
+                  <Insets top="3.0" />
+               </HBox.margin>
+            </VBox>
+            <ComboBox fx:id="cbAmount" prefWidth="150.0" promptText="Количество">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="1" />
+                     <String fx:value="2" />
+                     <String fx:value="3" />
+                  </FXCollections>
+               </items>
+               <value>
+                  <String fx:value="1" />
+               </value>
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+            </ComboBox>
+         </children>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </padding>
+      </HBox>
+      <Label text="Клиент:" />
+      <ComboBox fx:id="cbClients" />
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addTransaction" text="Добавить" textAlignment="CENTER">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#printReportInPdf" text="Печать">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addAndPrint" text="Добавить + Печать">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#reset" text="Очистить">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#back" text="Назад">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Button>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>

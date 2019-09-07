@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<HBox style="-fx-background-color: grey;" stylesheets="fxml/JMetroDarkTheme.css" prefHeight="324.0" prefWidth="447.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Manager.CarController">
+   <children>
+      <ListView prefHeight="324.0" prefWidth="141.0" fx:id="lvCars"/>
+      <VBox alignment="center" prefHeight="275.0" prefWidth="307.0" spacing="4.0" >
+          <padding>
+              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+          </padding>
+          <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="149.0" prefWidth="323.0" spacing="5.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="139.0" prefWidth="149.0" spacing="5.0">
+                     <children>
+                         <TextField promptText="Марка" fx:id="tfMark"/>
+                         <TextField promptText="Цвет" fx:id="tfColor"/>
+                         <TextField promptText="Номер кузова" fx:id="tfCarcassNum"/>
+                         <TextField promptText="Номер шасси" fx:id="tfChassisNum"/>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="149.0" prefWidth="151.0" spacing="5.0">
+                     <children>
+                         <TextField promptText="Модель" fx:id="tfModel"/>
+                         <TextField promptText="Пробег" fx:id="tfMileage"/>
+                         <TextField promptText="Номер двигателя" fx:id="tfEngineNum"/>
+                         <TextField promptText="Дата выпуска" fx:id="tfReleaseDate"/>
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+              <TextField prefHeight="31.0" prefWidth="223.0" promptText="Цена продажи"  fx:id="tfSellingPrice"/>
+              <TextField promptText="Цена на момент выпуска" fx:id="tfReleasePrice"/>
+              <TextField promptText="Номер гос регистрации" fx:id="tfStateRegNum"/>
+              <HBox alignment="CENTER" prefHeight="38.0" prefWidth="287.0" spacing="55.0">
+                  <children>
+                      <Button mnemonicParsing="false" text="ОК" onAction="#confirm"/>
+                      <Button mnemonicParsing="false" text="Отмена" onAction="#cancel"/>
+                  </children>
+                  <VBox.margin>
+                      <Insets top="15.0" />
+                  </VBox.margin>
+              </HBox>
+          </children>
+      </VBox>
+   </children>
+</HBox>
